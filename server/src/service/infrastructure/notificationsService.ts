@@ -132,7 +132,12 @@ export class NotificationsService implements INotificationsService {
 		return succeeded === notifications.length;
 	};
 
-	private sendEscalationNotification = async (monitor: Monitor, monitorStatusResponse: MonitorStatusResponse, decision: MonitorActionDecision, escalationChannelId: string | null | undefined) => {
+	private sendEscalationNotification = async (
+		monitor: Monitor,
+		monitorStatusResponse: MonitorStatusResponse,
+		decision: MonitorActionDecision,
+		escalationChannelId: string | null | undefined
+	) => {
 		if (!escalationChannelId) {
 			this.logger.warn({
 				message: "No escalation channel ID provided",
